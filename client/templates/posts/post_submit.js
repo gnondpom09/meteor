@@ -8,8 +8,15 @@ Template.postSubmit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
     };
-    // routage
-    post._id = Posts.insert(post);
-    Router.go('postPage', post);
-  }
-});
+    // appel methode postInsert avec callback
+    Meteor.call('postInsert', post, function(error, result) {
+      if (error) {
+        return alert(error.reason); // affiche l erreur utilisateur
+      }
+      // routage
+      Router.go('postPage', {
+        _id: result._id
+      }); // fermeture router
+    }) // fermeture method call
+  } // fermeture submit form
+}); // fermeture template
