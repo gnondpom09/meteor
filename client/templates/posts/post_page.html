@@ -7,5 +7,9 @@
         {{>commentItem}}
       {{/each}}
     </ul>
+    {{#if currentUser}}
+      {{>commentSubmit}}
+    {{/if}}
+    <p>Connectez vous pour poster un commentaire</p>
   </div>
 </template>
