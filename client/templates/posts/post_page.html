@@ -2,5 +2,10 @@
   <div class="post-page page">
     <h2>Détail</h2>
     {{>postItem}}
+    <ul class="comments">
+      {{#each comments}}
+        {{>commentItem}}
+      {{/each}}
+    </ul>
   </div>
 </template>

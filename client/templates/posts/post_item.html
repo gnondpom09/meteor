@@ -2,7 +2,8 @@
   <div class="post">
     <div class="post-content">
       <h3><a href="{{url}}">{{title}} - <span>{{domain}}</span></a></h3>
-      <p>Publie par {{author}}
+      <p>Publie par {{author}},
+        <a href="{{pathFor 'postPage'}}">{{commentsCount}} commentaires</a>
         {{#if ownPost}}
         <a href="{{pathFor 'postEdit'}}">Edit</a>
         {{/if}}

@@ -9,5 +9,10 @@ Template.postItem.helpers({
     // valeur de l attribut de a qui prends la valeur de l url courant
     a.href = this.url;
     return a.hostname;
+  },
+  commentsCount: function() {
+    return Comments.find({
+      postId: this._id
+    }).count();
   }
 });

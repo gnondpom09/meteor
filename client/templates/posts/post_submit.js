@@ -12,11 +12,11 @@ Template.postSubmit.helpers({
     return !!Session.get('postSubmitErrors')[field] ? 'has error' : '';
   }
 });
-
+// evenements du formulaire
 Template.postSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
-
+    // champs du post
     var post = {
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
@@ -27,7 +27,7 @@ Template.postSubmit.events({
     if (errors.title || errors.url) {
       return Session.set('postSubmitErrors', errors);
     }
-
+    // insertion d un post
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
       if (error)
