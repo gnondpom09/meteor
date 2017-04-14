@@ -1,7 +1,7 @@
 /**
  * publications dans la collection Mongo db cote serveur
  */
- // affiche lees posts
+ // affiche les posts
  Meteor.publish('posts', function() {
    return Posts.find();
  });
